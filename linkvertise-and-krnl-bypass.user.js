@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      5.3
 // @description  just waits 15 seconds for krnl and works fine with the other stuff 2 (it waits no time for other stuff) :)
-// @author       You
+// @author       varshithsatti18@gmail.com
 // @match        *://*.linkvertise.com/*
 // @match        *://*.linkvertise.net/*
 // @match        *://*.link-to.net/*
