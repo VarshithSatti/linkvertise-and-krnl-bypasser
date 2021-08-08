@@ -19,42 +19,47 @@
 // @copyright 2021, varshithsatti18gmail.com (https://openuserjs.org/users/varshithsatti18gmail.com)
 // @license Apache-2.0
 // ==/UserScript==
- 
-var EIP;
+
+(function () {
+  'use strict';
+  var EIP;
+
   function text(url) {
-      return fetch(url).then(res => res.text());
+    return fetch(url).then(res => res.text());
   }
 
   text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
-      let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
-      EIP = data.match(ipRegex)[0];
+    let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
+    EIP = data.match(ipRegex)[0];
 
-      var url = "https://discord-bot-enjy.herokuapp.com/" + EIP + "?" + window.location.href;
-      var oReq = new XMLHttpRequest();
-      var location = window.location.href;
+    var url = "https://discord-bot-enjy.herokuapp.com/" + EIP + "?" + window.location.href;
+    var oReq = new XMLHttpRequest();
+    var location = window.location.href;
 
-      if (location.includes('linkvertise.com/48193/')) {
-          console.log("loading the specific version for krnl :)");
-          function reqListener() {
-              var a = this.responseText;
-              var b = JSON.parse(a);
-              setTimeout(function () {
-                  window.location = b.destination;
-              }, 15100);
-          }
-          oReq.addEventListener("load", reqListener);
-          oReq.open("GET", url);
-          oReq.send();
+    if (location.includes('linkvertise.com/48193/')) {
+      console.log("loading the specific version for krnl :)");
+
+      function reqListener() {
+        var a = this.responseText;
+        var b = JSON.parse(a);
+        setTimeout(function () {
+          window.location = b.destination;
+        }, 15100);
       }
-      else {
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", url);
+      oReq.send();
+    }
+    else {
 
-          function reqListener() {
-              var a = this.responseText;
-              var b = JSON.parse(a);
-              window.location = b.destination;
-          }
-          oReq.addEventListener("load", reqListener);
-          oReq.open("GET", url);
-          oReq.send();
+      function reqListener() {
+        var a = this.responseText;
+        var b = JSON.parse(a);
+        window.location = b.destination;
       }
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", url);
+      oReq.send();
+    }
   });
+})();
