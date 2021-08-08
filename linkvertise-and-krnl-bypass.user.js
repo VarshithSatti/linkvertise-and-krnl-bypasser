@@ -16,7 +16,8 @@
 // @exclude      https://linkvertise.com/
 // @grant        GM.xmlHttpRequest
 // @icon         https://www.google.com/s2/favicons?domain=linkvertise.com
-// @grant        none
+// @copyright 2021, varshithsatti18gmail.com (https://openuserjs.org/users/varshithsatti18gmail.com)
+// @license Apache-2.0
 // ==/UserScript==
  
 var EIP;
